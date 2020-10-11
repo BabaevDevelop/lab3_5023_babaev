@@ -9,11 +9,8 @@ int* array_union(const int* f1,  const int* f2,  int* d){
     while((f1 != l1) && (f2 != l2)){
         if(*f1 >= *f2)
             *d++ = *f1++;
-        else if(*f1 <= *f2)
+        else{ 
             *d++ = *f2++;   
-        else {
-            *d++ = *f1++;
-            ++f2;
         }
     }
  

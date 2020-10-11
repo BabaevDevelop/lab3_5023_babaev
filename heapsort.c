@@ -7,13 +7,13 @@ void swap(int *C, int *D){
 }
 void Heapify(int *A, int n, int i){ 
     int largest = i;
-    int l = 2*i +1;
-    int r = 2*i + 2;
-    if (l < n && *(A+l) > *(A+largest)){
-        largest = l;
+    int left = 2*i +1;
+    int right = 2*i + 2;
+    if (left < n && *(A+left) > *(A+largest)){
+        largest = left;
     }
-    if (r < n && *(A+r) > *(A+largest)){
-        largest = r;
+    if (right < n && *(A+right) > *(A+largest)){
+        largest = right;
     }
     if (largest != i)
     {
@@ -37,14 +37,20 @@ void printArray(int A[], int n){
     for(int i = n-1; i >= 0; i--){
         printf("%d ", A[i]);
     }
+    printf("\n");
 }
 
 int main (){
-    int b[] = { 9, 11, 22, -4, -3, 2, 7, 12, -2 };
-    int n = sizeof(b)/sizeof(b[0]);
-
-    heapSort(b, n);
+    int arrayToSort[] = { 9, 11, 22, -4, -3, 2, 7, 12, -2 };
+    int n = sizeof(arrayToSort)/sizeof(arrayToSort[0]);
+    printf("%ld", sizeof(arrayToSort));
+    printf("Array we should sort: \n");
+    for(int i = 0; i < n; i++){
+    printf("%d ", arrayToSort[i]);
+    }
+    printf("\n");
+    heapSort(arrayToSort, n);
     printf("Final Array Is\n");
-    printArray(b, n);
+    printArray(arrayToSort, n);
     return 0;
     }
